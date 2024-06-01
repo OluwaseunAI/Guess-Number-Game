@@ -57,15 +57,19 @@ function guessNumber() {
           attemptsSpan.textContent = `You have ${attemptNo} attempt(s) left`;
 
           // alert(`${randCongratzMsg}, Congrats! You guessed the number ${secretNumber} with ${attemptNo} attempt(s) to spare`);
-          outputPara.textContent = `${randCongratzMsg}, Congrats! You guessed the number ${secretNumber} with ${attemptNo} attempt(s) to spare`
+          outputPara.textContent = `${randCongratzMsg}, Congrats! You guessed the number ${secretNumber} with ${attemptNo} attempt(s) to spare u{2714}`
           console.log(attemptNo)
           inputField.disabled = true;
           enterButton.disabled = true;
       } else if (attemptNo > 0) {
         console.log(attemptNo)
-        const message = userGuess < secretNumber ? 'Too Low, Try again' : 'Too High, Try again';
+        const message = userGuess < secretNumber ? 'Too Low, Try again \u{274C}' : 'Too High, Try again \u{274C}';
     outputPara.textContent = message;
     console.log(attemptNo)
+
+
+    // let wrong = document.querySelector('.wrong')
+    // wrong.textContent = `\u{274C}`
     return;
       } else {
         console.log(attemptNo)
