@@ -38,7 +38,7 @@ function guessNumber() {
      console.log(attemptNo);
 
       // function that checks if the user entered a number
-      if (isNaN(userGuess)) {
+      if (isNaN(userGuess) || isFinite(userGuess)) {
           // alert('Please enter a valid number');
           outputPara.textContent = "Please enter a valid number";
         //  console.log(attemptNo)
@@ -63,7 +63,7 @@ function guessNumber() {
           enterButton.disabled = true;
       } else if (attemptNo > 0) {
         console.log(attemptNo)
-        const message = userGuess < secretNumber ? 'Too Low, Try again \u{274C}' : 'Too High, Try again \u{274C}';
+        const message = userGuess < secretNumber ? 'Too Low, Try again \u{274C}' : 'Too High, Try again an \u{274C}';
     outputPara.textContent = message;
     console.log(attemptNo)
 

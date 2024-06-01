@@ -44,7 +44,9 @@ body{
 }
 
 .playAgain{
-  height: 30px;
+  height: 34px;
+  padding: 0px 15px;
+  /* padding-bottom: 11px; */
 }
 
 .guess {
