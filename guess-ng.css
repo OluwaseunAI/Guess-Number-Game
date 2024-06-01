@@ -1,0 +1,58 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background-color: darkgrey;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  display: flex;
+}
+
+.main-body{
+  background-color: rgb(56, 56, 237);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  width: 300px;
+  text-align: center;
+}
+
+.input {
+  margin-bottom: 10px;
+}
+
+.guess {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0069d9;
+}
+
+.output-p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.output span {
+  font-size: 16px;
+  color: #ffffff;
+}
