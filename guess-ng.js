@@ -15,6 +15,7 @@ function getRandomNumber(min, max) {
 enterButton.addEventListener('click', guessNumber);
 
   let attemptNo = 3; //max_attempts
+  let secretNumber
   function generateSecretNumber() {
     const minNum = 0;
     const maxNum = 100;
@@ -78,7 +79,7 @@ function guessNumber() {
         console.log(attemptNo)
           const randQuirkMsg = arrayQuirkySet[Math.floor(Math.random() * arrayQuirkySet.length)];
 
-          attemptsSpan.textContent = `You have ${attemptNo} attempt(s) left ${randQuirkMsg}, The number is ${secretNumber}`;
+          attemptsSpan.textContent = `You have no attempt left!. ${randQuirkMsg}, The number is ${secretNumber}`;
 
           //alert(`${randQuirkMsg}`);
         //alert(`The number is ${secretNumber}`)
