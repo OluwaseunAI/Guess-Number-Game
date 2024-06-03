@@ -12,10 +12,19 @@ function getRandomNumber(min, max) {
 //console.log(Math.floor(Math.random(0, 8)));
 
 
-enterButton.addEventListener('click', guessNumber);
+enterButton.addEventListener('click', () => {
+  if (attemptNo > 0) {
+    guessNumber();
+    attemptNo--;
+  } else /*if(attemptNo === 0)*/ {
+    outputPara.textContent =  `No attempts left! Game over.`;
+    inputField.disabled = true;
+    enterButton.disabled = true;
+  }
+});
 
   let attemptNo = 3; //max_attempts
-  let secretNumber
+  let secretNumber;
   function generateSecretNumber() {
     const minNum = 0;
     const maxNum = 100;
@@ -36,7 +45,7 @@ function guessNumber() {
     const maxNum = 100;
 
     //  userGuess = prompt(`Guess a number between ${minNum} and ${maxNum}:`);
-     attemptsSpan.textContent = `Guess a number between ${minNum} and ${maxNum}: You have ${attemptNo} attempt(s) left`
+     attemptsSpan.innerHTML = `Guess a number between< ${minNum} and ${maxNum}: <br>You have ${attemptNo} attempt(s) left`
      console.log(attemptNo);
 
       // function that checks if the user entered a number
@@ -48,8 +57,8 @@ function guessNumber() {
          return;
 
       }
-      attemptNo--;
-      attemptsSpan.textContent = `Guess a number between ${minNum} and ${maxNum}: You have ${attemptNo} attempt(s) left`
+      // attemptNo--;
+      attemptsSpan.innerHTML = `Guess a number between ${minNum} and ${maxNum}: <br> You have ${attemptNo} attempt(s) left.`
     console.log(attemptNo)
 
       if (userGuess === secretNumber) {
@@ -71,15 +80,17 @@ function guessNumber() {
     outputPara.textContent = message;
     console.log(attemptNo)
 
-
     // let wrong = document.querySelector('.wrong')
     // wrong.textContent = `\u{274C}`
     return;
       } else {
-        console.log(attemptNo)
-          const randQuirkMsg = arrayQuirkySet[Math.floor(Math.random() * arrayQuirkySet.length)];
 
-          attemptsSpan.textContent = `You have no attempt left!. ${randQuirkMsg}, The number is ${secretNumber}`;
+          const message = userGuess < secretNumber ? `Too Low, Game over! See you next time` : `Too High, Game over!  See you next time`;
+  outputPara.textContent = message;
+
+          const randQuirkMsg = arrayQuirkySet[Math.floor(Math.random() * arrayQuirkySet.length)];
+          // outputPara.textContent = message;
+          attemptsSpan.innerHTML += ` No attempt left <br> ${randQuirkMsg},<br><b style=fontSize: "25px">The number is ${secretNumber}<b>`;
 
           //alert(`${randQuirkMsg}`);
         //alert(`The number is ${secretNumber}`)
@@ -97,10 +108,11 @@ function playAgain() {
   const playAgain = document.querySelector('.playAgain');
   attemptNo = 3;
   secretNumber = null;
+  outputPara.style.color =  'white';
   inputField.disabled = false;
   enterButton.disabled = false;
-  outputPara.textContent = "";
-  attemptsSpan.textContent = `You have ${attemptNo} attempt(s) left`;
+  // outputPara.textContent = "";
+  attemptsSpan.innerHTML = ` o <br> You have ${attemptNo} attempt(s) left`;
   generateSecretNumber();
 }
 
